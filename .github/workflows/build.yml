@@ -23,17 +23,13 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Cache Gradle
-        uses: actions/cache@v4
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
         with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle.kts', '**/libs.versions.toml') }}
-          restore-keys: ${{ runner.os }}-gradle-
+          gradle-version: '8.11.1'
 
       - name: Build MSI
-        run: ./gradlew :composeApp:packageMsi
+        run: gradle :composeApp:packageMsi
 
       - name: Zip MSI
         run: |
@@ -59,17 +55,13 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Cache Gradle
-        uses: actions/cache@v4
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
         with:
-          path: |
-            ~/.gradle/caches
-            ~/.gradle/wrapper
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle.kts', '**/libs.versions.toml') }}
-          restore-keys: ${{ runner.os }}-gradle-
+          gradle-version: '8.11.1'
 
       - name: Build DEB
-        run: ./gradlew :composeApp:packageDeb
+        run: gradle :composeApp:packageDeb
 
       - name: Zip DEB
         run: |
