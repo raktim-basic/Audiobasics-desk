@@ -34,12 +34,17 @@ compose.desktop {
     application {
         mainClass = "com.audiobasics.desk.MainKt"
 
-        nativeDistributions {
-            targetFormats(TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "AudiobasicsDesk"
-            packageVersion = "1.0.0"
-            description = "Audiobasics Desktop Companion"
-            vendor = "Raktim"
-        }
+nativeDistributions {
+    targetFormats(TargetFormat.Msi, TargetFormat.Deb)
+    packageName = "AudiobasicsDesk"
+    packageVersion = "1.0.0"
+    description = "Audiobasics Desktop Companion"
+    vendor = "Raktim"
+
+    windows {
+        menuGroup = "Audiobasics"
+        shortcut = true
+        dirChooser = true
+        upgradeUuid = "a8f3b2c1-4d7e-4a9f-b6c2-1e3d5f7a9b0c"
     }
 }
