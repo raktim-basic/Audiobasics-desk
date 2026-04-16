@@ -1,6 +1,3 @@
-rootProject.name = "AudiobasicsDesk"
-include(":composeApp")
-
 pluginManagement {
     repositories {
         google()
@@ -15,3 +12,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+
+rootProject.name = "AudiobasicsDesk"
+include(":composeApp")
