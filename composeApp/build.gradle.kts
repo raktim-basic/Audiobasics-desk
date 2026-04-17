@@ -34,6 +34,8 @@ compose.desktop {
     application {
         mainClass = "com.audiobasics.desk.MainKt"
 
+        jvmArgs += listOf("-Dskiko.renderApi=SOFTWARE")
+
         nativeDistributions {
             targetFormats(TargetFormat.Msi, TargetFormat.Deb)
             packageName = "AudiobasicsDesk"
