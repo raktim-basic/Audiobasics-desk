@@ -41,14 +41,14 @@ compose.desktop {
             packageName = "AudiobasicsDesk"
             packageVersion = "1.0.0"
             description = "Audiobasics Desktop Companion"
-            vendor = "raktim-basic"
+            vendor = "Raktim"
+            javaHome = System.getenv("JAVA_HOME") ?: ""
 
             windows {
                 menuGroup = "Audiobasics"
                 shortcut = true
                 dirChooser = true
                 upgradeUuid = "a8f3b2c1-4d7e-4a9f-b6c2-1e3d5f7a9b0c"
-                javaHome = System.getenv("JAVA_HOME") ?: ""
             }
         }
     }
