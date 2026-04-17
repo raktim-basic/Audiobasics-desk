@@ -1,0 +1,55 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="AudiobasicsDesk.Views.PairingView"
+             Background="#121212">
+
+    <Grid HorizontalAlignment="Center"
+          VerticalAlignment="Center"
+          Width="380"
+          RowDefinitions="Auto,Auto,Auto,Auto,Auto">
+
+        <!-- Title -->
+        <TextBlock Grid.Row="0"
+                   Text="Audiobasics Desk"
+                   FontSize="28"
+                   FontWeight="Bold"
+                   Foreground="White"
+                   HorizontalAlignment="Center" />
+
+        <!-- Subtitle -->
+        <TextBlock Grid.Row="1"
+                   Text="Open Audiobasics on your phone and go to&#10;Desk → Pair New Device"
+                   TextAlignment="Center"
+                   Foreground="#999999"
+                   Margin="0,16,0,0" />
+
+        <!-- Code input -->
+        <TextBox Grid.Row="2"
+                 x:Name="CodeInput"
+                 Watermark="Enter 6-digit pairing code"
+                 MaxLength="6"
+                 HorizontalAlignment="Stretch"
+                 TextAlignment="Center"
+                 FontSize="20"
+                 Margin="0,32,0,0" />
+
+        <!-- Connect button -->
+        <Button Grid.Row="3"
+                x:Name="ConnectButton"
+                Content="Connect"
+                HorizontalAlignment="Stretch"
+                HorizontalContentAlignment="Center"
+                FontSize="16"
+                Margin="0,12,0,0"
+                Padding="0,12"
+                Click="OnConnectClicked" />
+
+        <!-- Status -->
+        <TextBlock Grid.Row="4"
+                   x:Name="StatusText"
+                   Text=""
+                   HorizontalAlignment="Center"
+                   Foreground="#999999"
+                   Margin="0,16,0,0" />
+    </Grid>
+</UserControl>
