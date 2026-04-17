@@ -1,9 +1,0 @@
-.gradle/
-build/
-*.iml
-.idea/
-local.properties
-*.class
-*.log
-.DS_Store
-Thumbs.db
