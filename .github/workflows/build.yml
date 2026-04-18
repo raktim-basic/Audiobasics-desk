@@ -1,0 +1,53 @@
+name: Build Audiobasics Desk
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  release:
+    types: [ created ]
+
+jobs:
+
+  build-windows:
+    name: Build Windows
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Publish Windows
+        run: dotnet publish -r win-x64 -c Release --self-contained true -p:PublishSingleFile=true -o publish/windows
+
+      - name: Zip
+        run: Compress-Archive -Path publish/windows/* -DestinationPath AudiobasicsDesk-Windows.zip
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: AudiobasicsDesk-Windows
+          path: AudiobasicsDesk-Windows.zip
+
+  build-linux:
+    name: Build Linux
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Publish Linux
+        run: dotnet publish -r linux-x64 -c Release --self-contained true -p:PublishSingleFile=true -o publish/linux
+
+      - name: Zip
+        run: zip -r AudiobasicsDesk-Linux.zip publish/linux/
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: AudiobasicsDesk-Linux
+          path: AudiobasicsDesk-Linux.zip
